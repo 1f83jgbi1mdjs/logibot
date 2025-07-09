@@ -1,0 +1,4 @@
+.target/*
+!.target/start.bat
+debug.sh
+.env

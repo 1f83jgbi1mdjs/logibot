@@ -1,0 +1,9 @@
+{
+	"recommendations": [
+		"denoland.vscode-deno",
+		"streetsidesoftware.code-spell-checker",
+		"streetsidesoftware.code-spell-checker-russian",
+		"michelemelluso.gitignore",
+		"aaron-bond.better-comments"
+	]
+}

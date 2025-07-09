@@ -1,0 +1,15 @@
+{
+	"deno.enable": true,
+	"editor.formatOnSave": true,
+	"[typescript]": {
+		"editor.defaultFormatter": "denoland.vscode-deno"
+	},
+	"cSpell.words": [
+		"autoquote",
+		"chatid",
+		"dotenv",
+		"logibot",
+		"msvc"
+	],
+	"cSpell.language": "en,ru"
+}

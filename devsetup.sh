@@ -1,12 +1,17 @@
 #!/bin/env bash
 
-curl https://mise.run | sh
-
-# Check if ~/.local/bin is in PATH and add it if not
-if ! echo "$PATH" | grep -q "$HOME/.local/bin"; then
-    export PATH="$HOME/.local/bin:$PATH"
+# Install mise only if it's not already available
+if [ ! -f ~/.local/bin/mise ]; then
+    curl https://mise.run | sh
 fi
 
 ~/.local/bin/mise trust
 ~/.local/bin/mise install
-cp .env.example .env
+
+# Copy .env.example to .env only if .env doesn't exist
+if [ ! -f .env ]; then
+    cp .env.example .env
+    echo ".env file created from .env.example"
+else
+    echo ".env file already exists, skipping copy"
+fi

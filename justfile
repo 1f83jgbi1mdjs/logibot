@@ -1,10 +1,7 @@
 set dotenv-load
 
-setup:
-    (curl https://mise.run | sh)
-    (~/.local/bin/mise trust)
-    (~/.local/bin/mise install)
-    (cp .env.example .env)
+update:
+    (git pull)
 
 debug:
     (deno task dev $TELEGRAM_BOT_TOKEN $AUTHORIZED_CHAT_ID $BRANCH_DESIGNATIONS)

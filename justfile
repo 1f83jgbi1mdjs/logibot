@@ -2,8 +2,8 @@ set dotenv-load
 
 setup:
     (curl https://mise.run | sh)
-    (mise trust)
-    (mise install)
+    (~/.local/bin/mise trust)
+    (~/.local/bin/mise install)
     (cp .env.example .env)
 
 debug:

@@ -1,5 +1,7 @@
 #!/bin/env bash
 
+sudo apt-get install just
+
 # Install mise only if it's not already available
 if [ ! -f ~/.local/bin/mise ]; then
     curl https://mise.run | sh

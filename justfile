@@ -16,6 +16,7 @@ start:
     (cd .target/ && logibot $TELEGRAM_BOT_TOKEN $AUTHORIZED_CHAT_ID $BRANCH_DESIGNATIONS)
 
 install_service:
+    (mkdir -p ~/.config/systemd/user)
     (cp --update=all ./services/logibot.service ~/.config/systemd/user/)
     (systemctl --user enable logibot.service)
 

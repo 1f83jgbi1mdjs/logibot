@@ -5,18 +5,18 @@ import { HELP_TEXT_MARKDOWN, MESSAGE_MAX_LENGTH } from "./common/constants.ts";
 import { formatTransfers } from "./features/transfer/index.ts";
 
 const TELEGRAM_BOT_TOKEN = Deno.env.get("TELEGRAM_BOT_TOKEN");
-const ALLOWED_CHAT_ID = Deno.env.get("ALLOWED_CHAT_ID");
-const SHOP_BRANCH_SHORTHANDS = Deno.env.get("SHOP_BRANCH_SHORTHANDS");
+const AUTHORIZED_CHAT_ID = Deno.env.get("AUTHORIZED_CHAT_ID");
+const BRANCH_DESIGNATIONS = Deno.env.get("BRANCH_DESIGNATIONS");
 
 if (
-  TELEGRAM_BOT_TOKEN === undefined || ALLOWED_CHAT_ID === undefined ||
-  SHOP_BRANCH_SHORTHANDS === undefined
+  TELEGRAM_BOT_TOKEN === undefined || AUTHORIZED_CHAT_ID === undefined ||
+  BRANCH_DESIGNATIONS === undefined
 ) {
   console.error("One or more required environment variables are missing. Check .env file.");
   Deno.exit(1);
 }
 
-const authorizedChatId = parseInt(ALLOWED_CHAT_ID, 10);
+const authorizedChatId = parseInt(AUTHORIZED_CHAT_ID, 10);
 
 const bot = new Bot(TELEGRAM_BOT_TOKEN);
 
@@ -66,7 +66,7 @@ bot.command("sort", (ctx) => {
           "Данная команда работает только в ответ на сообщение с перемещениями.",
         ).catch(console.error);
       } else {
-        const parsedResult = parseTransfers(message.reply_to_message.text, SHOP_BRANCH_SHORTHANDS);
+        const parsedResult = parseTransfers(message.reply_to_message.text, BRANCH_DESIGNATIONS);
         const { data: transfers, error } = formatTransfers(parsedResult);
 
         if (transfers !== null && transfers.length > 0) {

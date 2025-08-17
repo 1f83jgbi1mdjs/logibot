@@ -62,7 +62,8 @@ export const formatTransfers = (
               )
               .join("\n");
 
-            return `📦 *${productCategory}*\n\n` + formattedProducts;
+            return `📦 *${productCategory.replaceAll(/[_*\[\]()~`>#+=\-|{}\.!]/g, `\\$&`)}*\n\n` +
+              formattedProducts;
           })
           .join("\n\n");
 

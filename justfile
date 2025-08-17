@@ -4,6 +4,7 @@ update:
     (git pull)
 
 debug:
+    (rm services/logibot.log)
     (./deno task dev)
 
 test:

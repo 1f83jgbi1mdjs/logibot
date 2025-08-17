@@ -8,7 +8,10 @@ const TELEGRAM_BOT_TOKEN = Deno.env.get("TELEGRAM_BOT_TOKEN");
 const ALLOWED_CHAT_ID = Deno.env.get("ALLOWED_CHAT_ID");
 const SHOP_BRANCH_SHORTHANDS = Deno.env.get("SHOP_BRANCH_SHORTHANDS");
 
-if (TELEGRAM_BOT_TOKEN === undefined || ALLOWED_CHAT_ID === undefined || SHOP_BRANCH_SHORTHANDS) {
+if (
+  TELEGRAM_BOT_TOKEN === undefined || ALLOWED_CHAT_ID === undefined ||
+  SHOP_BRANCH_SHORTHANDS === undefined
+) {
   console.error("One or more required environment variables are missing. Check .env file.");
   Deno.exit(1);
 }

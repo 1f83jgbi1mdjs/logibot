@@ -1,0 +1,11 @@
+[Unit]
+Description=Logibot daemon
+
+[Service]
+Type=simple
+ExecStart=just -d %h/logibot -f %h/logibot/justfile debug
+Restart=on-failure
+StandardOutput=file:%h/logibot/services/logibot.log
+
+[Install]
+WantedBy=default.target

@@ -1,6 +1,8 @@
 #!/bin/env bash
 
 sudo apt-get install just
+sudo apt-get update -y
+sudo apt-get install systemd systemd-sysv -y
 
 # Install mise only if it's not already available
 if [ ! -f ~/.local/bin/mise ]; then

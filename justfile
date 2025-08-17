@@ -4,7 +4,7 @@ update:
     (git pull)
 
 debug:
-    (./deno task dev $TELEGRAM_BOT_TOKEN $AUTHORIZED_CHAT_ID $BRANCH_DESIGNATIONS)
+    (./deno task dev)
 
 test:
     (./deno test)
@@ -13,9 +13,10 @@ build:
     (./deno build)
 
 start:
-    (cd .target/ && logibot $TELEGRAM_BOT_TOKEN $AUTHORIZED_CHAT_ID $BRANCH_DESIGNATIONS)
+    (cd .target/ && logibot)
 
 install_service:
+    (sudo loginctl enable-linger $USER)
     (mkdir -p ~/.config/systemd/user)
     (cp --update=all ./services/logibot.service ~/.config/systemd/user/)
     (systemctl --user enable logibot.service)

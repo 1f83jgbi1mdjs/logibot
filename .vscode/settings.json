@@ -10,7 +10,8 @@
 		"dotenv",
 		"justfile",
 		"logibot",
-		"msvc"
+		"msvc",
+		"sysv"
 	],
 	"cSpell.language": "en,ru"
 }

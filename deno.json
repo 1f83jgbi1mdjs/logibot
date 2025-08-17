@@ -1,6 +1,6 @@
 {
   "tasks": {
-    "dev": "deno run --watch --allow-net --allow-env --allow-read --allow-import src/main.ts",
+    "dev": "deno run --watch --allow-net --allow-env --allow-read --allow-import --env-file src/main.ts",
     "build": "deno compile --allow-net --allow-env --allow-read --allow-import --output .target/logibot src/main.ts",
     "build:macos-x86_64": "deno compile --allow-net --allow-env --allow-read --allow-import --output .target/logibot_macos-x86_64 --target x86_64-apple-darwin src/main.ts"
   },

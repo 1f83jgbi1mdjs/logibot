@@ -4,8 +4,14 @@ import { parseTransfers } from "./common/generated/parsers.ts";
 import { HELP_TEXT_MARKDOWN, MESSAGE_MAX_LENGTH } from "./common/constants.ts";
 import { formatTransfers } from "./features/transfer/index.ts";
 
-//* Command line arguments
-const [TELEGRAM_BOT_TOKEN, ALLOWED_CHAT_ID, SHOP_BRANCH_SHORTHANDS] = Deno.args;
+const TELEGRAM_BOT_TOKEN = Deno.env.get("TELEGRAM_BOT_TOKEN");
+const ALLOWED_CHAT_ID = Deno.env.get("ALLOWED_CHAT_ID");
+const SHOP_BRANCH_SHORTHANDS = Deno.env.get("SHOP_BRANCH_SHORTHANDS");
+
+if (TELEGRAM_BOT_TOKEN === undefined || ALLOWED_CHAT_ID === undefined || SHOP_BRANCH_SHORTHANDS) {
+  console.error("One or more required environment variables are missing. Check .env file.");
+  Deno.exit(1);
+}
 
 const authorizedChatId = parseInt(ALLOWED_CHAT_ID, 10);
 
